@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Trabalho de Redes 2</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Redes 2</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="client.py.txt">Cliente</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="server.py.txt">Servidor</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="api.py.txt">API</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="Makefile.txt">Makefile</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="client_log.txt">Logs do cliente</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="server_log.txt">Logs do servidor</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="api_log.txt">Logs da API</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- Titulo-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Relatório do Trabalho de Redes II
+                    </h1>
+                    <div class="subheading">
+                        André Miguel Sikora Marques
+                        <span class="text-primary">GRR20182593</span>
+                    </div>
+                    <div class="subheading">
+                        Kevin Katzer
+                        <span class="text-primary">GRR20182614</span>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Projeto-->
+            <section class="resume-section" id="projeto">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">O Projeto</h2>
+                    <ul class="list-group mb-5">
+                        <li class="list-group-item"><i class="fa fa-temperature-low"></i> API</li>
+                        <li class="list-group-item"><i class="fa fa-server"></i> Servidor</li>
+                        <li class="list-group-item"><i class="fa fa-display"></i> Cliente</li>
+                    </ul>
+
+                    <div class="subheading mb-3">API</div>
+                    <p class="mb-5">
+                        Inicialmente, cogitamos utilizar um servidor real para consumo de dados de temperatura atuais de partes remotas de nosso planeta. Porém, ao pesquisar APIs que nos retornassem esses dados, percebemos que essas APIs implementavam o seu próprio cache interno, o que atrapalharia nosso trabalho.<br/>
+                        Dessa forma, decidimos implementar uma pequena API com 3 endpoints: <code>/antarctica</code>, <code>/deathvalley</code> e <code>/saaradesert</code>. Cada endpoint retorna uma temperatura aleatória em uma variação pré-definida: -89.2ºC a 15ºC na Antártica, 2ºC a 57ºC no Vale da Morte e -4ºC a 47ºC no Deserto do Saara.<br/>
+                        A API foi implementada em python com ajuda da biblioteca <code>FastAPI</code>, pois é uma biblioteca muito rápida e fácil de usar.<br/><br/>
+                        <a href="api.py.txt">Implementação da API</a><br/>
+                        <a href="api_log.txt">Log da API</a>
+                    </p>
+
+                    <div class="subheading mb-3">Servidor</div>
+                    <p class="mb-5">
+                        Para o servidor, foi implementado um dicionário com 3 entradas, uma para cada estação (Antártica, Vale da Morte e Deserto do Saara). Cada uma dessas entradas possui dois campos: <code>temperature</code> e <code>updated_at</code> com os dados da última temperatura encontrada e a data e hora que a requisição foi feita, respectivamente.<br/>
+                        Para disponibilização da tabela para o cliente, um socket é aberto e, em loop, o servidor ouve qualquer requisição que recebe através desse socket. Ao encontrar uma requisição, os dados recebidos devem ser uma string contendo a estação desejada (<code>"ANTARCTICA"</code>, <code>"DEATHVALLEY"</code> ou <code>"SAARADESERT"</code>). Dependendo da string recebida, o servidor consulta sua tabela cache para descobrir se a última requisição feita à API para aquela estação foi a mais de 30 segundos. Se sim, é feita uma nova requisição à API e o campo da tabela é atualizado, com esse valor novo sendo retornado ao cliente. Se não, o valor retornado é o próprio encontrado na tabela e não é feita uma requisição à API.<br/><br/>
+                        <a href="server.py.txt">Implementação do Servidor</a><br/>
+                        <a href="server_log.txt">Log do Servidor</a>
+                    </p>
+
+                    <div class="subheading mb-3">Cliente</div>
+                    <p class="mb-3">
+                        O cliente foi implementado utilizando uma biblioteca chamada <code>urwid</code> para facilitar a usabilidade para o usuário.<br/>
+                        Ao rodar o programa, o cliente apresenta uma tela oferecendo que o usuário escolha entre uma das 3 opções de estação meteorológica:
+                    </p>
+                    <p class="text-center"><img class="img-fluid text-center" src="assets/client1.png"></p>
+                    <p class="mb-3">
+                        Ao escolher a estação desejada, o programa faz uma requisição via socket ao servidor com a opção.<br/>
+                        O programa então apresenta o resultado para o usuário, que pode refazer o processo.
+                    </p>
+                    <p class="text-center"><img class="img-fluid text-center" src="assets/client2.png"></p><br/><br/>
+                    <p class="mb-0">
+                        <a href="client.py.txt">Implementação do Cliente</a><br/>
+                        <a href="client_log.txt">Log do Cliente</a>
+                    </p>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Rodando-->
+            <section class="resume-section" id="Rodando">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Rodando o Projeto</h2>
+                    <p class="mb-0">
+                        A API, o Servidor e o Cliente podem todos serem rodados a partir do comando <code>make</code>. Para isso, é necessário primeiro instalar as dependências do projeto com o comando <code>make install</code>.<br/>
+                        Com as dependências instaladas, deve-se rodar os três processos concorrentemente em ordem: primeiro a API, com o comando <code>make api</code>, então o servidor, com o comando <code>make server</code> e enfim o cliente, com o comando <code>make client</code>.<br/><br/>
+                        <a href="Makefile.txt">Makefile</a><br/>
+                    </p>
+                </div>
+            </section>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
