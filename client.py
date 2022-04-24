@@ -17,7 +17,9 @@ PORT = 65432
 
 def request_station(choice):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        print("Conectando ao servidor", file =  open('client_log.txt','a'))
         s.connect((HOST, PORT))
+        print(f"Enviando requisição da temperatura de {choice} para o servidor", file =  open('client_log.txt','a'))
         s.sendall(Place(choice).name.encode())
         data = s.recv(1024)
         item_chosen(choice, data.decode())
@@ -33,13 +35,15 @@ def menu(title, choices):
 
 
 def loading(button, choice):
+    print("------------------------------------------------------------------------", file =  open('client_log.txt','a'))
     message = urwid.Text([u'Loading...'])
     main.original_widget = urwid.Filler(message)
     request_station(choice)
 
 
 def item_chosen(place, temperature):
-    response = urwid.Text([u'A temperatura em ', place, u' é: ', temperature, u'\n'])
+    print(f"Temperatura recebida do servidor para {place}: {temperature}ºC", file =  open('client_log.txt','a'))
+    response = urwid.Text([u'A temperatura em ', place, u' é: ', temperature, u'ºC\n'])
     done = urwid.Button(u"Ok")
     urwid.connect_signal(done, 'click', restart_menu)
     main.original_widget = urwid.Filler(urwid.Pile([response,
