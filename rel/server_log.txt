@@ -1,31 +1,31 @@
 Servidor inicializado
 ------------------------------------------------------------------------
-Recebida requisição de ('127.0.0.1', 52452)
+Recebida requisicao de ('127.0.0.1', 52452)
 Procurando temperatura na tabela cache
 Temperatura da tabela cache desatualizada, buscando novo valor
 Enviando temperatura de ANTARCTICA, 4.13ºC, para ('127.0.0.1', 52452)
 ------------------------------------------------------------------------
-Recebida requisição de ('127.0.0.1', 52456)
+Recebida requisicao de ('127.0.0.1', 52456)
 Procurando temperatura na tabela cache
 Temperatura da tabela cache desatualizada, buscando novo valor
 Enviando temperatura de DEATHVALLEY, 49.38ºC, para ('127.0.0.1', 52456)
 ------------------------------------------------------------------------
-Recebida requisição de ('127.0.0.1', 52460)
+Recebida requisicao de ('127.0.0.1', 52460)
 Procurando temperatura na tabela cache
 Temperatura da tabela cache desatualizada, buscando novo valor
 Enviando temperatura de SAARADESERT, 6.95ºC, para ('127.0.0.1', 52460)
 ------------------------------------------------------------------------
-Recebida requisição de ('127.0.0.1', 52464)
+Recebida requisicao de ('127.0.0.1', 52464)
 Procurando temperatura na tabela cache
 Temperatura da tabela cache ok, usando este valor
 Enviando temperatura de ANTARCTICA, 4.13ºC, para ('127.0.0.1', 52464)
 ------------------------------------------------------------------------
-Recebida requisição de ('127.0.0.1', 52466)
+Recebida requisicao de ('127.0.0.1', 52466)
 Procurando temperatura na tabela cache
 Temperatura da tabela cache ok, usando este valor
 Enviando temperatura de DEATHVALLEY, 49.38ºC, para ('127.0.0.1', 52466)
 ------------------------------------------------------------------------
-Recebida requisição de ('127.0.0.1', 52468)
+Recebida requisicao de ('127.0.0.1', 52468)
 Procurando temperatura na tabela cache
 Temperatura da tabela cache ok, usando este valor
 Enviando temperatura de SAARADESERT, 6.95ºC, para ('127.0.0.1', 52468)

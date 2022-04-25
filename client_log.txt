@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------
 Conectando ao servidor
-Enviando requisição da temperatura de Antártica para o servidor
-Temperatura recebida do servidor para Antártica: ºC
+Enviando requisicao da temperatura de Antartica para o servidor
+Temperatura recebida do servidor para Antartica: ºC
 ------------------------------------------------------------------------
 Conectando ao servidor
-Enviando requisição da temperatura de Antártica para o servidor
-Temperatura recebida do servidor para Antártica: -55.44ºC
+Enviando requisicao da temperatura de Antartica para o servidor
+Temperatura recebida do servidor para Antartica: -55.44ºC

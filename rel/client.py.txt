@@ -4,12 +4,12 @@ import urwid
 
 
 class Place(Enum):
-    ANTARCTICA = "Antártica"
+    ANTARCTICA = "Antartica"
     DEATHVALLEY = "Vale da Morte"
     SAARADESERT = "Deserto do Saara"
 
 
-PLACES = ["Antártica", "Vale da Morte", "Deserto do Saara"]
+PLACES = ["Antartica", "Vale da Morte", "Deserto do Saara"]
 
 HOST = "127.0.0.1"
 PORT = 65432
@@ -19,7 +19,7 @@ def request_station(choice):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         print("Conectando ao servidor", file =  open('client_log.txt','a'))
         s.connect((HOST, PORT))
-        print(f"Enviando requisição da temperatura de {choice} para o servidor", file =  open('client_log.txt','a'))
+        print(f"Enviando requisicao da temperatura de {choice} para o servidor", file =  open('client_log.txt','a'))
         s.sendall(Place(choice).name.encode())
         data = s.recv(1024)
         item_chosen(choice, data.decode())
@@ -43,7 +43,7 @@ def loading(button, choice):
 
 def item_chosen(place, temperature):
     print(f"Temperatura recebida do servidor para {place}: {temperature}ºC", file =  open('client_log.txt','a'))
-    response = urwid.Text([u'A temperatura em ', place, u' é: ', temperature, u'ºC\n'])
+    response = urwid.Text([u'A temperatura em ', place, u' e: ', temperature, u'ºC\n'])
     done = urwid.Button(u"Ok")
     urwid.connect_signal(done, 'click', restart_menu)
     main.original_widget = urwid.Filler(urwid.Pile([response,

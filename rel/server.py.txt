@@ -52,7 +52,7 @@ async def main():
             s.listen()
             conn, addr = s.accept()
             with conn:
-                print(f"Recebida requisição de {addr}")
+                print(f"Recebida requisicao de {addr}")
                 data = conn.recv(1024).decode("utf-8")
                 print(f"Procurando temperatura na tabela cache")
                 temperature = await request_cache(Place[data])
