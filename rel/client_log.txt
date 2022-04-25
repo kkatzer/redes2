@@ -1,24 +1,24 @@
 ------------------------------------------------------------------------
 Conectando ao servidor
 Enviando requisicao da temperatura de Antartica para o servidor
-Temperatura recebida do servidor para Antartica: 4.13ºC
+Temperatura recebida do servidor para Antartica: 4.13C
 ------------------------------------------------------------------------
 Conectando ao servidor
 Enviando requisicao da temperatura de Vale da Morte para o servidor
-Temperatura recebida do servidor para Vale da Morte: 49.38ºC
+Temperatura recebida do servidor para Vale da Morte: 49.38C
 ------------------------------------------------------------------------
 Conectando ao servidor
 Enviando requisicao da temperatura de Deserto do Saara para o servidor
-Temperatura recebida do servidor para Deserto do Saara: 6.95ºC
+Temperatura recebida do servidor para Deserto do Saara: 6.95C
 ------------------------------------------------------------------------
 Conectando ao servidor
 Enviando requisicao da temperatura de Antartica para o servidor
-Temperatura recebida do servidor para Antartica: 4.13ºC
+Temperatura recebida do servidor para Antartica: 4.13C
 ------------------------------------------------------------------------
 Conectando ao servidor
 Enviando requisicao da temperatura de Vale da Morte para o servidor
-Temperatura recebida do servidor para Vale da Morte: 49.38ºC
+Temperatura recebida do servidor para Vale da Morte: 49.38C
 ------------------------------------------------------------------------
 Conectando ao servidor
 Enviando requisicao da temperatura de Deserto do Saara para o servidor
-Temperatura recebida do servidor para Deserto do Saara: 6.95ºC
+Temperatura recebida do servidor para Deserto do Saara: 6.95C

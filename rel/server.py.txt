@@ -57,7 +57,7 @@ async def main():
                 print(f"Procurando temperatura na tabela cache")
                 temperature = await request_cache(Place[data])
                 conn.sendall(str(temperature).encode())
-                print(f"Enviando temperatura de {data}, {temperature}ºC, para {addr}")
+                print(f"Enviando temperatura de {data}, {temperature}C, para {addr}")
                 print(f"------------------------------------------------------------------------")
 
 if __name__ == "__main__":

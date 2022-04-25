@@ -42,8 +42,8 @@ def loading(button, choice):
 
 
 def item_chosen(place, temperature):
-    print(f"Temperatura recebida do servidor para {place}: {temperature}ºC", file =  open('client_log.txt','a'))
-    response = urwid.Text([u'A temperatura em ', place, u' e: ', temperature, u'ºC\n'])
+    print(f"Temperatura recebida do servidor para {place}: {temperature}C", file =  open('client_log.txt','a'))
+    response = urwid.Text([u'A temperatura em ', place, u' e: ', temperature, u'C\n'])
     done = urwid.Button(u"Ok")
     urwid.connect_signal(done, 'click', restart_menu)
     main.original_widget = urwid.Filler(urwid.Pile([response,
